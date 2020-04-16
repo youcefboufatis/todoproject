@@ -222,3 +222,38 @@ input[type="checkbox"]:checked + label:before {
   align-content: center;
   align-items: center;
 }
+
+
+@media only screen and (max-width: 768px) {
+  .colmun-1 {
+    width: 100%;
+  }
+  .colmun {
+    display: block;
+    width: 100%;
+  }
+  .svg_todo {
+    width: 100%;
+  }
+  .has-feedback {
+    max-width: 100%;
+  }
+  .todo_card {
+    max-width: 100%;
+    width: 100%;
+  }
+  .todo-list {
+    max-width: 100%;
+
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .colmun {
+    display: flex;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}
