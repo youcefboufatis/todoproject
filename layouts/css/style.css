@@ -11,6 +11,22 @@ body{
 .fab:before, .fas:before {
   font-family: "Font Awesome 5 Free";
 }
+.error {
+  margin: 10px 0;
+  border-radius: 10px;
+  width: 94%;
+  background: #ff7675;
+  font-size: 20px;
+  max-width: 15em;
+  padding: 0.5em 1em;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  border: 3px solid #d63031;
+  display: inline-block;
+}
+.alert.alert-danger {
+  display: block;
+  color: #fff;
+}
 .colmun {
     position: relative;
     overflow: hidden;
@@ -131,6 +147,8 @@ body{
     position: relative;
     display: block;
     padding: 10px;
+    transition: all 0.4s eas  
+
 }
 
 .todo-list .done > label {
@@ -146,7 +164,7 @@ body{
   text-align: center;
   line-height: 30px;
   position: absolute;
-  right: 0;
+  right: 4px;
   top: 7px;
   border-radius: 100%;
   cursor: pointer;
@@ -199,6 +217,9 @@ input[type="checkbox"]:checked + label:before {
 }
 #addButton > .fa {
   color :#130f40;
+}
+.todo-list > li.done {
+  background: #90f690;
 }
 .done_remove {
   background: #130f40;
