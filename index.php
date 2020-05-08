@@ -20,10 +20,8 @@ include_once $templates . "header.inc.php";
     <div class="todo_body">
       <form id="addForm" method="post">
         <input name="token" type="text" hidden value="<?php echo $token  ?>" />
-
         <div class="add-control">
           <div class="form-group has-feedback">
-
             <input id="todo_title" name="todo_title" type="text" class="form-control" placeholder="✍️ Add item..." />
             <button id="addButton" type="submit" name="submit"><i class="fa fa-plus form-control-feedback add-btn"
                 title="Add item"></i></button>
@@ -38,7 +36,6 @@ include_once $templates . "header.inc.php";
         </div>
       </form>
       <br>
-
     </div>
   </div>
 </div>
@@ -47,8 +44,8 @@ include_once $templates . "header.inc.php";
     $('.error').hide();
     $('#addForm').submit(function (e) {
       e.preventDefault();
-      var title = $('#todo_title').val(); // Task name
-      var ss = $('input[name=token]').val(); // Token Value
+      var title = $('#todo_title').val(), // Task name
+          ss = $('input[name=token]').val(); // Token Value
       if (title == '') {
         $('.error').show();
         $('.error .alert > strong').html('You Must add Task Name');
@@ -65,8 +62,8 @@ include_once $templates . "header.inc.php";
             console.log(response);
             var obj = JSON.parse(response);
             if (obj.result.status > 0) {
-              var task_id = obj.data[0].task_id;
-              var task_name = obj.data[0].task_name;
+              var task_id = obj.data[0].task_id,
+                  task_name = obj.data[0].task_name;
               htmlcode = '<li><input type="checkbox" id="box-' + task_id + '" ><label for="box-' +
                 task_id + '">' + task_name +
                 '</label><span class="delete"><i class="fas fa-trash"></i></span></li>';
@@ -81,6 +78,7 @@ include_once $templates . "header.inc.php";
         });
       }
     });
+    var ss = '<?php echo $_SESSION['token'] ?>';
     $.ajax({
       type: "POST",
       url: 'todo.php', //Action Url
@@ -97,8 +95,8 @@ include_once $templates . "header.inc.php";
           if (obj.data.length > 0) {
             for (var i = 0; i < obj.data.length; i++) {
               var task_id = obj.data[i].task_id,
-              var task_name = obj.data[i].task_name,
-              var task_status = obj.data[i].task_status;
+                  task_name = obj.data[i].task_name,
+                  task_status = obj.data[i].task_status;
               if (task_status == 1) {
                 checked = "checked='checked'";
                 status = "class='done'";
@@ -115,8 +113,8 @@ include_once $templates . "header.inc.php";
                 $(this).find('input[type=checkbox]').click(function () {
                   var id = $(this).attr('id');
                   id = id.replace("box-", "");
-                  var action, task_status;
-                  var ss = $('input[name=token]').val(), // Token Value
+                  var action, task_status,
+                      ss = $('input[name=token]').val(), // Token Value
                       checked = $(this).is(':checked');
                   if (checked == true) {
                     $(this).removeAttr('checked');
